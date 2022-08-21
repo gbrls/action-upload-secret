@@ -1,0 +1,17 @@
+name: 'Upload Secret Action'
+description: 'A Github Action to upload a secret to the repository'
+inputs:
+  secret-name:
+    description: 'The name of the secret'
+    required: true
+    default: 'ACTION_UPLOADED_SECRET'
+  secret-value:
+    description: 'The value of the secret'
+    required: true
+    default: '123'
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        ls
+        echo "HI"
