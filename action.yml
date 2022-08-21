@@ -12,6 +12,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: |
-        ls
-        echo "HI"
+    - name: "Run bash"
+      shell: bash
+      run: |
+          ls
+          echo "HI"
