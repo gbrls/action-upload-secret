@@ -15,10 +15,11 @@ runs:
     - name: "Run bash"
       env: 
         REPO_PATH: ${{ github.repository }}
+        TOKEN: ${{ github.token }}
         SECRET_NAME: ${{ inputs.secret-name }}
       shell: bash
       run: |
           ls
           echo "HI"
           curl \
-            -X PUT -H "Accept: application/vnd.github+json" -H "Authorization: token <TOKEN>" https://api.github.com/repos/"${REPO_PATH}"/actions/secrets/"${SECRET_NAME}" -d '{"encrypted_value":"c2VjcmV0","key_id":"012345678912345678","visibility":"all"}'
+            -X PUT -H "Accept: application/vnd.github+json" -H "Authorization: token ${TOKEN}" https://api.github.com/repos/"${REPO_PATH}"/actions/secrets/"${SECRET_NAME}" -d '{"encrypted_value":"c2VjcmV0","key_id":"012345678912345678","visibility":"all"}'
